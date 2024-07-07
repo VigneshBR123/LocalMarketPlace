@@ -1,0 +1,196 @@
+{% extends 'default_page.html' %}
+{% block body %}
+{% load static %}
+<section>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center">
+               <h1 class="mt-5">LocalMarketPlace.in</h1>
+          </div>
+      </div>
+  </div>
+</section>
+<nav aria-label="breadcrumb" style="margin-left: 180px; margin-bottom: -50px;">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}" style="text-decoration: none;"> Home </a></li>
+      <li class="breadcrumb-item active" aria-current="page">FreeLancer Account SetUp </li>
+  </ol><hr style="margin-top: 0px; border-color: #9aa8ac; width: 998px; ">
+</nav>
+<form id="submit-form" method="post" action="https://script.google.com/macros/s/AKfycbwgSWVD6fdjsziFw602ws23NfgYw3txwWhsyiXpu8tRGgAJqFVzoYIKW31_DMLKWjpA/exec">
+  {% csrf_token %}
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12 text-center">
+              <section class="mt-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded m-auto" style="height: 1430px; width: 1000px; border-radius: 1px;">
+                <div class="row">
+                  <div class="col-md-12">
+                      <h2>FreeLancer Account</h2>
+                      <p class="" style="margin-top: -10px; font-size: 12px;">Stay connected with your local clients</p>
+                      <hr>
+                  </div>
+                </div>
+                  <div class="row justify-content-center">
+                        <div class="col-md-4 me-auto">
+                          <div class="mb-3">
+                            <label for="exampleInputName1" class="form-label me-0" style="margin-left: -240px;">Purpose</label>
+                            <select class="form-select" aria-label="Default select example" name="purpose">
+                                <option selected>Select</option>
+                                <option value="1">Create Account</option>
+                                <option value="2">Edit Account</option>
+                              </select>
+                          </div>
+                          <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -147px;">Select Your Profession</label>
+                              <select class="form-select" aria-label="Default select example" name="Profession">
+                                  <option selected>Profession</option>
+                                  <option value="1">Doctor</option>
+                                  <option value="2">Home Nurse</option>
+                                  <option value="3">Software Engineer</option>
+                                  <option value="4">Frontend Developer</option>
+                                  <option value="5">Backend Developer</option>
+                                  <option value="18">FullStack Developer</option>
+                                  <option value="6">Website Designer</option>
+                                  <option value="7">Graphical Designer</option>
+                                  <option value="8">Electrical Engineer</option>
+                                  <option value="9">Civil Engineer</option>
+                                  <option value="10">Mechanical Engineer</option>
+                                  <option value="11">Plumber</option>
+                                  <option value="12">Electrician </option>
+                                  <option value="13">Building Contractor</option>
+                                  <option value="14">Hardware Engineer</option>
+                                  <option value="15">Decoration Contractor</option>
+                                  <option value="16">Driver</option>
+                                  <option value="17">Chefs</option>
+                                  <option value="19">House Maintainer</option>
+                                  <option value="20">Teacher</option>
+                                  <option value="21">Lawyer</option>
+                                  <option value="22">Manufacturer</option>
+                                  <option value="23">Other (Please provide fllowing field)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -250px;">Name</label>
+                              <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Name" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -160px;">Upload Your Image</label><br>
+                              <input type="file" class="form-control" id="attachment" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="attachment" accept="image/jpeg,image/png" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -200px;">All About Me</label>
+                              <textarea id="subject" class="form-control" id="exampleInputSubject"  rows="3" name="About_Me" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -200px;">Local Address</label>
+                              <textarea id="subject" class="form-control" id="exampleInputSubject"  rows="2" name="Address" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -230px;">Pin Code</label>
+                              <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Pin" pattern="[0-9]{6}" maxlength="6" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -260px;">State</label>
+                              <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="State" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -240px;">Country</label>
+                              <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Country" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -240px;">Gender</label>
+                              <div class="input-group-text">
+                                  <input class="form-check-input mt-0" type="radio" value="Male" aria-label="Radio button for following label" name="Gender">
+                                  <label for="Gender" class="ms-2 me-3">Male</label>
+                                  <input class="form-check-input mt-0" type="radio" value="Male" aria-label="Radio button for following label" name="Gender">
+                                  <label for="Gender" class="ms-2 me-3">Female</label>
+                                  <input class="form-check-input mt-0" type="radio" value="Male" aria-label="Radio button for following label" name="Gender">
+                                  <label for="Gender" class="ms-2 me-3">Others</label>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -270px;">Age</label>
+                              <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Age" pattern="[0-9]{2}" maxlength="25" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputName1" class="form-label me-0" style="margin-left: -200px;">Available In</label><br>
+                              <textarea id="subject" class="form-control" id="exampleInputSubject"  rows="3" name="Available_at" placeholder="eg.,Monday:8am to 4pm" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4 me-auto">
+                          <div class="mb-3">
+                            <label for="exampleInputName1" class="form-label me-0" style="margin-left: -6px;">If Edit Profile Please Enter Your Id, Otherwise Null</label>
+                            <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="pro_Id" required>
+                          </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -150px;">Profession (Detailed)</label>
+                                <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Profession" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -210px;">Qualification</label>
+                                <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Qualification" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -260px;">Skills</label>
+                                <textarea id="subject" class="form-control" id="exampleInputSubject"  rows="2" name="Skills" required></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -220px;">Experiance</label>
+                                <textarea id="subject" class="form-control" id="exampleInputSubject"  rows="2" name="Experiance" required></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -190px;">Adhar Number</label>
+                                <input id="name" type="test" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Adhar_Number" pattern="[0-9]{12}" maxlength="12" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -160px;">Upload Your Adhar</label><br>
+                                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="Adhar_Image">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -190px;">Phone Number</label>
+                                <input id="name" type="tel" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Phone_number"  maxlength="10" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -165px;">WhatsApp Number</label>
+                                <input id="name" type="tel" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Whatsapp_number" pattern="[0-9]{10}" maxlength="10" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -265px;">Email</label>
+                                <input id="name" type="email" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Email" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -240px;">LinkedIn</label>
+                                <input id="name" type="url" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Linkedin" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName1" class="form-label me-0" style="margin-left: -200px;">Payment/Hour</label>
+                                <input id="name" type="integer" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" name="Fees" required>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="my-2">
+                          <p class="text-center" style="font-size: 13px;">By creating an account for your career growth, you agree to LocalMarketPlace <a href="#">Conditions of Use</a> and <a href="#">Privacy Policy</a>. </p>
+                        </div>
+                        <div class="my-2">
+                          <p class="text-center" style="font-size: 13px;">For verification <b>LocalMarketPlace.in</b> team will communicate you within a 1 week. </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="mx-auto">
+                              <button type="submit" class="text-center py-2 my-3 px-5 bg-dark text-light" style="border-radius: 5px; font-weight: bold;">SUBMIT PROFILE</button>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          </div> 
+      </div>
+    </div>
+  </div>
+</form>
+{% include 'copy_right2.html' %}
+{% endblock body %}

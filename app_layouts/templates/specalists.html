@@ -1,0 +1,68 @@
+{% extends 'default_page.html' %}
+{% block title %}
+{% load static %}
+<title>Local MarketPlace || Professions</title>
+<link rel="icon" href="{% static 'logo.png' %}" type="image/icon type">
+{% endblock title %}
+{% block body %}
+{% include 'navbar.html' %}
+    <section class="py-5 text-center container" style="margin-top: 70px;">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="fw-light"><h2><b>Welcome !!!</b></h2></div>
+                <p class="lead text-muted"><b>Lets start Career In Our Platform And Provide Services For Public.</b></p>
+                <p>
+                    <a href="{% url 'registeration' %}" class="btn btn-secondary my-2">Register</a>
+                    <a href="{% url 'freelancer_register_form2' %}" class="btn btn-primary my-2">Create Profile</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-light py-1 my-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3" style="margin-left: -30px;">
+                        <h3 class=""><b>Specialists</b></h3>
+                        <hr style="margin-top: 0px; border-color: #9aa8ac">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav aria-label="breadcrumb" style="margin-left: -25px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" style="text-decoration: none;">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Specialists</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <tr style="font-size: 22px;">
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Profession</th>
+                            <th>Fee</th>
+                            <th>Profile</th>
+                            <th></th>
+                        </tr>
+                        {% for i in specalists %}
+                        <tr style="font-size: 12px;"></tr>
+                            <td><img src="{{i.profession.Image.url}}" height="75px" width="75px" alt="{{i.profession.Name}}"></td>
+                            <td><b>{{i.profession.Name}}</b></td>
+                            <td><b>{{i.profession.My_Profession}}</b></td>
+                            <td><b>RS.{{i.profession.Payment}}</b> per hour</td>
+                            <td><a href="{% url 'pro_details' i.profession.Profession i.profession.Name %}" style="text-decoration: none;"><b>View</b></a></td>
+                            <td><a href="{% url 'remove_specalist' i.id %}" onclick="return confirm('Are You Sure to Remove')" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Remove</i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% include 'footer.html' %}
+{% endblock body %}

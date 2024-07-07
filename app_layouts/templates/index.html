@@ -1,0 +1,15 @@
+{% extends 'default_page.html' %}
+{% block title %}
+{% load static %}
+<title>Local MarketPlace</title>
+<link rel="icon" href="{% static 'logo.png' %}" type="image/icon type">
+{% endblock title %}
+{% block body %}
+{% include 'navbar.html' %}
+{% include 'home_slider.html' %}
+{% include 'domestic_staff.html' %}
+{% include 'ecom.html' %}
+{% include 'footer.html' %}
+{% include 'copy_right.html' %}
+{% endblock body %}
+<script src="https://kit.fontawesome.com/80f8cb075b.js" crossorigin="anonymous"></script>

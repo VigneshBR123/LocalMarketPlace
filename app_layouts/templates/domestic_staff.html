@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-3" style="margin-left: -30px; margin-top: 20px;">
+                <h3 class=""><b>Casual Professionals</b></h3>
+                <hr style="margin-top: 0px; border-color: #000000">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid"></div>
+    <div class="row">
+        {% for i in profess_ions %}
+        <div class="col-md-3 me-auto" style="width: 280px;">
+            <a href="{% url 'professionals' i.Profession_category %}" style="text-decoration: none;">
+                <div class="card my-3 border border-0 shadow mb-5 bg-body-tertiary rounded" style="height: 330px;">
+                    <img src="{{i.Image.url}}" class="card-image-top" alt="Profession" style="height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">{{i.Profession_category}}</h5>
+                        <p class="card-text text-secondary" style="font-size: 10px;">{{i.Description}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

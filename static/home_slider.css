@@ -1,0 +1,9 @@
+*{
+    margin-top: -8px;
+}
+.carousel-item img {
+    object-fit: cover;
+    object-position: top;
+    height: 80vh;
+    overflow: hidden;
+}

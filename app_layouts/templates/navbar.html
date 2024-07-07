@@ -1,0 +1,28 @@
+{% extends 'default_page.html' %}
+{% block style%}
+{% endblock style%}
+{% block body%}
+{% block navbar %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Navbar.css' %}">
+<nav class="nb sticky-top">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+        <label class="logo">LocalMarketPlace</label>
+        <ul>
+            <li><a class="" href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'professionals' %}">Professionals</a></li>
+            <li><a href="{% url 'specalists' %}">Specialists</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="#" class="btn btn-dark btn-sm">Hii..!, {{request.user}}</a></li>
+                <li><a href="{% url 'logout' %}" onclick="return confirm('Are You Sure to Logout')" class="btn btn-dark btn-sm">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'registeration' %}" class="btn btn-dark btn-sm"><b> Register </b></a></li>
+                <li><a href="{% url 'login' %}" class="btn btn-dark btn-sm"><b> Login </b></a></li>
+            {% endif %}
+        </ul>
+</nav>
+{% endblock navbar %}
+{% endblock body%}

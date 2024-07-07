@@ -1,0 +1,110 @@
+{% extends 'default_page.html' %}
+{% block body %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                 
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mt-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded m-auto" style="height: 2050px; width: 400px; border-radius: 1px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>FreeLancer Account</h2>
+                <p class="" style="margin-top: -10px; font-size: 12px;">Stay connected with your local clients</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="">Profession</label><br>
+                    {{ frm.Profession}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Name</label><br>
+                    {{ frm.Name}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Image</label><br>
+                    {{ frm.Image}}
+                </div>
+                <div class="mb-4">
+                    <label for="">My Profession</label><br>
+                    {{ frm.My_Profession}}
+                </div>
+                <div class="mb-4">
+                    <label for="">About me</label><br>
+                    {{ frm.About_me}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Qualification</label><br>
+                    {{ frm.Qualification}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Skills</label><br>
+                    {{ frm.Skills}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Local Address</label><br>
+                    {{ frm.Address_1}}
+                </div>
+                <div class="mb-4">
+                    <label for="">State</label><br>
+                    {{ frm.Address_2}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Country</label><br>
+                    {{ frm.Country}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Gender</label><br>
+                    {{ frm.Gender}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Age</label><br>
+                    {{ frm.Age}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Adhar Number</label><br>
+                    {{ frm.Adhar_number}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Upload your adhar here</label><br>
+                    {{ frm.Adhar_image}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Phone Number</label><br>
+                    {{ frm.Phone_number}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Experiance</label><br>
+                    {{ frm.Experiance}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Availabe in any time</label>
+                    {{ frm.Availabe_any_time}}
+                </div>
+                <div class="mb-4">
+                    <label for="">Are you emergent FreeLancer</label>
+                    {{ frm.Emergant_freelancer}}
+                </div>
+                <div class="mx-auto">
+                    <button type="submit" class="text-center py-2 px-5 bg-dark text-light" style="border-radius: 5px; font-weight: bold;">CREATE PROFILE</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="my-3">
+                <p> Already have an account?  <a href="{% url 'login' %}">Sign in</a></p>
+                <p class="text-center" style="font-size: 13px;">By creating an account or logging in, you agree to LocalMarketPlace <a href="#">Conditions of Use</a> and <a href="#">Privacy Policy</a>. </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'copy_right2.html' %}
+{% endblock body %}

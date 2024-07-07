@@ -1,0 +1,14 @@
+asgiref==3.7.2
+DateTime==5.4
+Django==5.0.2
+django-phonenumber-field==7.3.0
+django-phonenumbers==1.0.1
+phonenumbers==8.13.30
+phonenumberslite==8.13.33
+pillow==10.2.0
+pytz==2024.1
+setuptools==69.2.0
+simplejson==3.19.2
+sqlparse==0.4.4
+tzdata==2024.1
+zope.interface==6.2

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-3" style="margin-left: -30px; margin-top: 20px;">
+                <h3 class=""><b>Economical Professionals</b></h3>
+                <hr style="margin-top: 0px; border-color: #000000">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for i in profession_s %}
+        {% if i.Payment <= 500 %}
+            <div class="col-md-3 me-auto" style="width: 280px;">
+                <a href="{% url 'pro_details' i.Profession i.Name %}" style="text-decoration: none;">
+                    <div class="card my-3 border border-0 shadow mb-5 bg-body-tertiary rounded" style="height: 330px;">
+                        <img src="{{i.Image.url}}" class="card-image-top" alt="Profession" style="height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark text-center"><b>{{i.Name}}</b> <span style="font-size: 10px;">{{i.Qualification}}</span></h5>
+                            <p class="card-text text-dark text-center" style="font-size: 18px;">{{i.My_Profession}}</p>
+                            <p class="card-text text-dark text-center" style="font-size: 14px;">Payment: RS.{{i.Payment}} per hour</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

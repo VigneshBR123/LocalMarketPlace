@@ -1,0 +1,13 @@
+{% extends 'default_page.html' %}
+{% block body%}
+{% block msg %}
+<div class="col-md-12">
+    {% for msg in messages %}
+    <div class="alert alert-info alert-dismissibe fade show" role="alert">
+        {{msg}}
+        <button type="button" class="btn-close position-absolute top-50 start-100 translate-middle" data-bs-dismiss="alert" aria-label="Close" style="margin-left: -30px;"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock msg %}
+{% endblock body%}

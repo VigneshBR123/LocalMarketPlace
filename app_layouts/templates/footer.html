@@ -1,0 +1,67 @@
+{% extends 'default_page.html' %}
+{% block body %}
+{% block footer %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'footer.css' %}">
+<script src="
+https://kit.fontawesome.com/80f8cb075b.js"
+crossorigin="anonymous"></script>
+<footer style="height: 400px;">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="" alt="" class="logo">
+            <h3 style="margin-top: -17px;">LocalMarketPlace.in</h3>
+            <p style="padding-bottom: 10px; font-size: 15px;">
+                Designed and Developed by the <b>LocalMarketPlace.in</b> team.
+                This platform is developed by us in the motive of our Final Year Project in 2020-2024...
+            </p>
+            <p>
+                <a href="#" style="text-decoration: none;">About Us</a><br>
+            </p>
+            <p>
+                <a href="#" style="text-decoration: none;">Learn to use</a>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <h3 style="padding-bottom: 10px;">Navigation Links</h3>
+            <p><a href="{% url 'home' %}" style="text-decoration: none;"> Home </a></p>
+            <p><a href="{% url 'professionals' %}" style="text-decoration: none;"> Professionals </a></p>
+            <p><a href="{% url 'specalists' %}" style="text-decoration: none;"> Specalists </a></p>
+            <p><a href="{% url 'registeration' %}" style="text-decoration: none;"> Register </a></p>
+            <p><a href="{% url 'login' %}" style="text-decoration: none;"> Login </a></p>
+            <p><a href="{% url 'freelancer_register_form2' %}" id="btnreg" style="text-decoration: none;"> Create Profile </a></p>
+        </div>
+        <div class="col-md-3">
+            <h3 style="padding-bottom: 10px;">Community</h3>
+            <p><a href="" style="text-decoration: none;" target="_blank"> Issues </a></p>
+            <p><a href="" style="text-decoration: none;" target="_blank"> Discussions </a></p>
+            <p><a href="" style="text-decoration: none;" target="_blank"> Feedback </a></p>
+            <p><a href="https://stackoverflow.com/" style="text-decoration: none;" target="_blank"> Stack Overflow </a></p>
+            <p><a href="" style="text-decoration: none;" target="_blank"> Blogs </a></p>
+        </div>
+        <div class="col-md-3">
+            <h3 style="padding-bottom: 10px;">Start Career</h3>
+            <p><a href="" style="text-decoration: none;"> How to start </a></p>
+            <p><a href="{% url 'registeration' %}"><button class="btn btn-secondary">Register</button></a></p>
+            <p><a href="{% url 'freelancer_register_form2' %}" id="btnreg" style="text-decoration: none;">Create Account</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3 style="padding-bottom: 10px;">Connect with us</h3>
+            <p> 
+                <i class="fa-brands fa-facebook"></i><a href="" style="text-decoration: none;"> Facebook </a>       ||
+                <i class="fa-brands fa-instagram"></i><a href="" style="text-decoration: none;"> Instagram </a>     ||
+                <i class="fa-brands fa-youtube"></i><a href="" style="text-decoration: none;"> Youtube </a>         ||
+                <i class="fa-brands fa-twitter"></i><a href="" style="text-decoration: none;"> Twitter </a>         ||
+                <i class="fa-brands fa-linkedin"></i><a href="" style="text-decoration: none;"> LinkedIn </a>       ||
+                <i class="fa-brands fa-threads"></i><a href="" style="text-decoration: none;"> Threads </a>
+            </p>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+{% endblock footer %}
+{% endblock body %}

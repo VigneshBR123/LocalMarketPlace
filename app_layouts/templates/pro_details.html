@@ -1,0 +1,156 @@
+{% extends 'default_page.html' %}
+{% block title %}
+{% load static %}
+<title>Local MarketPlace || Professions</title>
+<link rel="stylesheet" href="{%static 'pro_detail.css'%}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock title %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="margin-left: 23px;">Professional's Profile</h3>
+            <hr style="margin-left: 23px; width: 930px;">
+            {% for i in pro_details %}
+            <nav aria-label="breadcrumb" style="margin-left: 23px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}" style="text-decoration: none;">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'professionals' %}" style="text-decoration: none;">Professionals</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'professionals' i.Profession %}" style="text-decoration: none;">{{i.Profession}}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{i.Name}}</li>
+                </ol>
+            </nav>
+            <div class="col-md-4">
+                <div class="card shadow-lg m-3 border border-0 bg-body-tertiary rounded" style="height: 1050px; width: 960px;">
+                    {% if i.Payment < 1000 %}
+                    <div class="pic-box" style="margin-left: -90%;">
+                        <div class="ecom">
+                            <button type="button" class="btn btn-secondary bg-danger"><b>Economical</b></button>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="card mb-3 my-0 border border-0 shadow mb-3 bg-body-tertiary rounded" style="max-width: 700px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{i.Image.url}}" class="card" alt="{{i.Name}}" style="height: 200px; width: 220px; margin-left: -45px;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h3 class="card-title"><b>{{i.Name}}</b> <span style="font-size: 10px;">{{i.Qualification}}</span></h3>
+                                    <p class="card-text">{{i.Experiance}}</p>
+                                    <p class="card-text"><small class="text-body-secondary">{{i.About_me}}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-text" style="margin-top: -80px;">
+                        <div class="info">
+                            <div class="add_to_spec" style="margin-top: -20px; margin-left: -50px;">
+                                <form>
+                                <input type="hidden" value="{{i.id}}" id="pid">
+                                <div class="add_button">
+                                    <div class="row">
+                                        <button id="btnspc" type="button" class="btn btn-secondary my-3" style="color: white;"><b>Add To Specialist</b></button>
+                                    </div>
+                                </div>
+                                </form>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function(event) {
+                                        const pid = document.getElementById("pid");
+                                        const btnspcs = document.getElementById("btnspc");
+                                        btnspcs.addEventListener("click", function() {
+                                            let postobj = {
+                                                'pid': pid.value,
+                                            };
+                                            //console.log(postobj);
+                                            fetch("/addtospecialist/", {
+                                                method: 'POST',
+                                                credentials: 'same-origin',
+                                                headers: {
+                                                    'Accept': 'application/json',
+                                                    'X-Requested-With': 'XMLHttpRequest',
+                                                    'X-CSRFToken': '{{csrf_token}}',
+                                                },
+                                                body: JSON.stringify(postobj)
+                                            }).then(response => {
+                                                return response.json();
+                                            }).then(data => {
+                                                //console.log(data);
+                                                alert(data['status']);
+                                            });
+                                        });
+                                    });
+                                </script>
+                            </div>
+                            <table>
+                                <hr>
+                                <h3 style="text-align: center;" class="my-4">Personal Details:</h3>
+                                <tr>
+                                    <td style="padding-left: 100px;"><h5>Profession</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.My_Profession}} </h5></td>
+                                    <td style="padding-left: 100px;"><h5>Skills</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Skills}} </h5></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 100px;"><h5>Gender</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Gender}} </h5></td>
+                                    <td style="padding-left: 100px;"><h5>Age</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Age}} </h5></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 100px;"><h5>Adress Line1</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Address_1}} </h5></td>
+                                    <td style="padding-left: 100px;"><h5>Adress Line2</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Address_2}} </h5></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 100px;"><h5>District</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.District}} </h5></td>
+                                    <td style="padding-left: 100px;"><h5>State</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.State}} </h5></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 100px;"><h5>Country</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Country}} </h5></td>
+                                </tr>
+                            </table>
+                            <table>
+                                <h3 style="text-align: center;" class="my-4">Additional Details:</h3>
+                                <td style="padding-left: 100px;"><h5>Emergency Professional</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Emergant_freelancer}} </h5></td>
+                                    <td style="padding-left: 100px;"><h5>Available Within a Day:</h5></td>
+                                    <td style="padding-left: 10px;"><h5> :</h5></td>
+                                    <td style="padding-left: 30px;"><h5>{{i.Availabe_any_time}} </h5></td>
+                            </table>
+                            <hr>
+                            <span style="text-align: center;" class="my-4"><h4>Payment: RS. {{i.Payment}} <small style="font-size: 12px;">only</small></h4><p>Per hour</p></span>
+                            <hr>
+                        </div>
+                    </div>
+                    <h3 style="text-align: center;" class="my-2">Communicate With:</h3>
+                    <div class="socials">
+                        <li style="padding-left: 5px;"><a href="http://wa.me/{{i.Phone_number}}" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+                        <li style="padding-left: 5px;"><a href="mailto:{{i.Email}}" class="mailmessage" target="_blank"><i class="fa-solid fa-envelope"></i> </a></li>
+                        <li style="padding-left: 5px;"><a href="{{i.Linkedin}}" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li style="padding-left: 5px;"><a href="tel:+{{i.Phone_number}}" class="phone" target="_blank"><i class="fa-solid fa-phone"></i></a></li>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock body %}

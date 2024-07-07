@@ -1,0 +1,65 @@
+{% extends 'default_page.html' %}
+{% block title %}
+{% load static %}
+<title>Local MarketPlace || Professions</title>
+<link rel="icon" href="{% static 'logo.png' %}" type="image/icon type">
+{% endblock title %}
+{% block body %}
+{% include 'navbar.html' %}
+    <section>
+        <div class="container">
+            <div class="row">
+                {% include 'success_msg.html' %}
+            </div>
+        </div>
+    </section>
+    <section class="py-5 text-center container" style="margin-top: 70px;">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="fw-light"><h2><b>Welcome !!!</b></h2></div>
+                <p class="lead text-muted">Lets start explore our professionals for an effective consultant.</p>
+                <p>
+                    <a href="{% url 'registeration' %}" class="btn btn-secondary my-2">Register</a>
+                    <a href="{% url 'login' %}" class="btn btn-primary my-2">Already User</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-light py-1 my-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3" style="margin-left: -30px;">
+                        <h3 class=""><b>Professionals</b></h3>
+                        <hr style="margin-top: 0px; border-color: #9aa8ac">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav aria-label="breadcrumb" style="margin-left: -25px;">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" style="text-decoration: none;">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Professionals</li>
+                    </ol>
+                </nav>
+                {% for i in profession %}
+                <div class="col-md-3 me-auto" style="width: 280px;">
+                    <a href="{% url 'professionals' i.Profession_category %}" style="text-decoration: none;">
+                        <div class="card my-3 border border-0 shadow mb-5 bg-body-tertiary rounded" style="height: 330px;">
+                            <img src="{{i.Image.url}}" class="card-image-top" alt="Profession" style="height: 200px;">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">{{i.Profession_category}}</h5>
+                                <p class="card-text text-secondary" style="font-size: 10px;">{{i.Description}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% include 'footer.html' %}
+{% endblock body %}
+<script src="https://kit.fontawesome.com/80f8cb075b.js" crossorigin="anonymous"></script>

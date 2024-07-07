@@ -1,0 +1,58 @@
+{% extends 'default_page.html' %}
+{% block title %}
+{% load static %}
+<title>Local MarketPlace || Professions</title>
+{% endblock title %}
+{% block body %}
+{% include 'navbar.html' %}
+<section class="py-5 text-center container" style="margin-top: 70px;">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <div class="fw-light"><h2><b>Lets Start !!</b></h2></div>
+            <p class="lead text-muted">Create your efficent experiance with our experts.</p>
+            <p>
+                <a href="{% url 'registeration' %}" class="btn btn-secondary my-2">Register</a>
+                <a href="{% url 'freelancer_register_form2' %}" class="btn btn-primary my-2">Create Profile</a>
+            </p>
+        </div>
+    </div>
+</section>
+<section class="bg-light py-1 my-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3" style="margin-left: -30px;">
+                    <h3 class=""><b>{{Profession_category}}s</b></h3>
+                    <hr style="margin-top: 0px; border-color: #9aa8ac">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <nav aria-label="breadcrumb" style="margin-left: -25px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}" style="text-decoration: none;">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'professionals' %}" style="text-decoration: none;">Professionals</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{Profession_category}}s</li>
+                </ol>
+            </nav>
+            {% for i in profiles %}
+            <div class="col-md-3 me-auto" style="width: 280px;">
+                <a href="{% url 'pro_details' Profession_category i.Name %}" style="text-decoration: none;">
+                    <div class="card my-3 border border-0 shadow mb-5 bg-body-tertiary rounded" style="height: 330px;">
+                        <img src="{{i.Image.url}}" class="card-image-top" alt="Profession" style="height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark text-center"><b>{{i.Name}}</b> <span style="font-size: 10px;">{{i.Qualification}}</span></h5>
+                            <p class="card-text text-dark text-center" style="font-size: 18px;">{{i.My_Profession}}</p>
+                            <p class="card-text text-dark text-center" style="font-size: 14px;">Payment: RS.{{i.Payment}} per hour</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+{% endblock body %}

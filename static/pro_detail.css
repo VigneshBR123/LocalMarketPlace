@@ -1,0 +1,103 @@
+body{
+    background: #ddd;
+}
+.profile-area{
+    padding: 80px 0;
+}
+.card{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 15px;
+    height: 830px;
+    text-align: center;
+    justify-content: center;
+    width: 230%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+ 
+.img2 img{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 7px solid #fff;
+    margin-top: 20px;
+}
+.info{
+    text-align: left;
+    margin-top: 10%;
+    margin-left: 3%;
+}
+.socials{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);  
+    justify-content: center;
+}
+.socials li{
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.socials li a{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    border-radius: 50px;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+   
+}
+.socials li a i{
+    color: #fff;
+    font-size: 30px;
+}
+.whatsapp{
+    background: green;
+}
+.mailmessage{
+    background: rgb(248, 54, 102);
+}
+.linkedin{
+    background:rgb(4, 4, 245);
+}
+ 
+.phone{
+    background: rgb(10, 137, 241);
+}
+
+@media  (max-width:990px) {
+   
+    .card{
+       
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        width: 90%;
+        margin: 10%;
+    }
+    .img1{
+        width: 35px;
+        height: 35px;
+    }
+   
+    table td h3{
+        font-size: 13px;
+    }
+    .info{
+        margin-left: 7%;
+    }
+    .socials li a{
+        width: 30px;
+        height: 30px;
+    }
+    .socials li a i{
+        color: #fff;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,58 @@
+{% extends 'default_page.html' %}
+{% block title %}
+{% load static %}
+    <title>MarketPlace Sign In</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/icon type">
+{% endblock title %}
+{% block body %}
+<section>
+    <div class="container">
+        <div class="row">
+            {% include 'success_msg.html' %}
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="pt-5">LocalMarketPlace.in</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mt-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded m-auto" style="height: 450px; width: 400px; border-radius: 1px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Login</h2>
+                <p class="" style="margin-top: -10px; font-size: 12px;">Stay connected with your local experts</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="">User Name</label><br>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Enter User Name">
+                </div>
+                <div class="mb-4">
+                    <label for="">Password</label><br>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+                </div>
+                <div class="mx-auto">
+                    <button type="submit" class="text-center py-2 px-5 bg-dark text-light" style="border-radius: 5px; font-weight: bold;">LOG IN</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="my-3">
+                <p> Create Your MarketPlace Account:  <a href="{% url 'registeration' %}">Sign up</a></p>
+                <p class="text-center" style="font-size: 13px;">By continuing, you agree to LocalMarketPlace <a href="#">Conditions of Use</a> and <a href="#">Privacy Policy</a>. </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'copy_right2.html' %}
+{% endblock body %}
