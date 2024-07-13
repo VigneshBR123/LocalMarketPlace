@@ -1,0 +1,13 @@
+{
+    "builds":[{
+        "src":"market_place/wsgi.py",
+        "use":"@vercel/python",
+        "config":{"maxLambdaSize":"15mb", "runtime":"python3.12"}
+    }],
+    "routes":[
+        {
+            "src": "/(.*)",
+            "dest": "market_place/wsgi.py"
+        }
+    ]
+}
