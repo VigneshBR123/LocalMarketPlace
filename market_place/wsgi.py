@@ -15,4 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'market_place.settings')
 
 application = get_wsgi_application()
 
-app = appplication
+app = application
