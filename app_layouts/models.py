@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 import os
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+if not User.objects.filter(username="admin").exists():
+    User.objects.create_superuser("admin", "br20022006@gmail.com", "vicky@123")
+
 
 def getFileName(request,filename):
     now_time=datetime.datetime.now().strftime("%Y%m%d%H:%M:%S")
